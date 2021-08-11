@@ -1,4 +1,4 @@
-import NewItemForm from "../components/shop/NewItemForm";
+import NewItemForm from "../components/admin/NewItemForm";
 
 function AdminPage() {
   return (

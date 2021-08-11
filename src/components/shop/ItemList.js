@@ -12,7 +12,7 @@ function ItemList(props) {
           brand={item.brand}
           price={item.price}
           description={item.description}
-          image={item.image}
+          images={item.images}
         />
       ))}
     </ul>
