@@ -28,16 +28,18 @@ function Item(props) {
             onClick={toggleModal}
           />
         </div>
-        <div className={classes.content}>
+        {/* <div className={classes.content}>
+          <span>{props.title}</span>
           <span>{props.brand}</span>
           <span>{props.price}</span>
           <p>{props.description}</p>
-        </div>
+        </div> */}
       </div>
       {modal && (
         <Modal
           images={props.images}
           title={props.title}
+          description={props.description}
           onClick={toggleModal}
         />
       )}

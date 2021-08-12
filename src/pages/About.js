@@ -1,5 +1,11 @@
+import AboutList from "../components/about/AboutList";
+
 function AboutPage() {
-  return <div>about page</div>;
+  return (
+    <section>
+      <AboutList />
+    </section>
+  );
 }
 
 export default AboutPage;

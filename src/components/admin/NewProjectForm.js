@@ -3,29 +3,26 @@ import { useState, useRef } from "react";
 import Card from "../ui/Card";
 import classes from "./admin.module.css";
 
-const NewItemForm = (props) => {
+const NewProjectForm = (props) => {
   const titleInputRef = useRef();
-  const brandInputRef = useRef();
-  const priceInputRef = useRef();
+  const numberInputRef = useRef();
   const descriptionInputRef = useRef();
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const enteredTitle = titleInputRef.current.value;
-    const enteredBrand = brandInputRef.current.value;
-    const enteredPrice = priceInputRef.current.value;
+    const enteredNumber = numberInputRef.current.value;
     const enteredDescription = descriptionInputRef.current.value;
 
-    const itemData = {
+    const projectData = {
       title: enteredTitle,
-      brand: enteredBrand,
-      price: enteredPrice,
+      number: enteredNumber,
       description: enteredDescription,
       images: images,
     };
 
-    props.onAddItem(itemData);
+    props.onAddProject(projectData);
   };
 
   const [images, setImages] = useState([""]);
@@ -56,12 +53,8 @@ const NewItemForm = (props) => {
           <input type="text" required id="title" ref={titleInputRef} />
         </div>
         <div className={classes.control}>
-          <label htmlFor="brand">brand</label>
-          <input type="text" required id="brand" ref={brandInputRef} />
-        </div>
-        <div className={classes.control}>
-          <label htmlFor="price">price</label>
-          <input type="text" required id="price" ref={priceInputRef} />
+          <label htmlFor="number">number</label>
+          <input type="text" required id="number" ref={numberInputRef} />
         </div>
         <div className={classes.control}>
           <label htmlFor="description">description</label>
@@ -72,6 +65,7 @@ const NewItemForm = (props) => {
             ref={descriptionInputRef}
           ></textarea>
         </div>
+
         <ul>
           {images.map((image, index) => (
             <li key={index} className={classes.control}>
@@ -93,11 +87,11 @@ const NewItemForm = (props) => {
         </ul>
 
         <div className={classes.actions}>
-          <button>Add Item</button>
+          <button>Add Project</button>
         </div>
       </form>
     </Card>
   );
 };
 
-export default NewItemForm;
+export default NewProjectForm;
