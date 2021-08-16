@@ -39,11 +39,7 @@ function ProjectsPage() {
     );
   }
 
-  return (
-    <section>
-      <ProjectList projects={loadedProjects} />
-    </section>
-  );
+  return <ProjectList projects={loadedProjects} />;
 }
 
 export default ProjectsPage;

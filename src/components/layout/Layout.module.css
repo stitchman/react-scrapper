@@ -1,11 +1,5 @@
-.wrapper {
-  margin: 0 auto;
-}
-
-.main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.container {
   height: 100vh;
-  margin: 5px;
+  width: 100vw;
+  background-color: #94d82d;
 }

@@ -39,11 +39,7 @@ function ShopPage() {
     );
   }
 
-  return (
-    <section>
-      <ItemList items={loadedItems} />
-    </section>
-  );
+  return <ItemList items={loadedItems} />;
 }
 
 export default ShopPage;

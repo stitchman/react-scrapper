@@ -1,17 +1,89 @@
 .header {
-  background-color: yellow;
+  background-color: transparent;
   position: fixed;
   width: 100%;
-  z-index: 1;
+  z-index: 2;
   top: 0;
+  user-select: none;
+  background-color: transparent;
+}
+
+.logo {
+  margin-left: 5px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.logoText {
+  color: black;
+  font-family: monospace;
+  line-height: none;
+}
+
+.logoImg {
+  height: 30px;
+}
+
+.burger {
+  position: absolute;
+  right: 15px;
+  cursor: pointer;
+  padding: 5px;
 }
 
 .nav {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   list-style: none;
+}
+
+.navItem {
+  padding-bottom: 1px;
+}
+
+.link {
+  color: black;
+}
+
+.burger {
+  display: none;
 }
 
 .active {
   color: red;
+}
+
+.backdrop {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  z-index: -1;
+}
+
+@media screen and (max-width: 800px) {
+  .nav {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .navItem {
+    padding: 5px;
+  }
+
+  .burger {
+    display: block;
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+    padding: 5px;
+  }
+
+  .hidden {
+    display: none;
+  }
 }

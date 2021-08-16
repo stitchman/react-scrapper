@@ -1,50 +1,37 @@
-import { useState } from "react";
-import Card from "../ui/Card";
 import classes from "./Item.module.css";
-import Modal from "../ui/Modal";
-import Backdrop from "../ui/Backdrop";
+import { Link } from "react-router-dom";
 
 function Item(props) {
-  const [modal, setModal] = useState(false);
-
-  function toggleModal() {
-    setModal(!modal);
-  }
-
-  if (modal) {
-    document.body.classList.add("modalIsOpen");
-  } else {
-    document.body.classList.remove("modalIsOpen");
-  }
-
   return (
-    <Card>
-      <div className={classes.item}>
-        <div>
-          <img
-            className={classes.image}
-            src={props.images[0]}
-            alt={props.title}
-            onClick={toggleModal}
-          />
-        </div>
+    <div className={classes.item}>
+      <p className={classes.title}>{props.item.title}</p>
+      <ul className={classes.list}>
         {/* <div className={classes.content}>
-          <span>{props.title}</span>
-          <span>{props.brand}</span>
-          <span>{props.price}</span>
-          <p>{props.description}</p>
-        </div> */}
+        <p className={classes.title}>{props.item.title}</p>
+      </div> */}
+        {props.item.images.map((image, index) => (
+          <li key={index}>
+            <img
+              src={image}
+              alt={`${props.item.title} ${index}`}
+              className={classes.image}
+            />
+          </li>
+        ))}
+      </ul>
+      <div className={classes.content}>
+        <p className={classes.title}>{props.item.title}</p>
+        <p>{props.item.brand}</p>
+        <p>₩ {props.item.price}</p>
+        <br />
+        <p>{props.item.description}</p>
+        <br />
+        <br />
+        <Link to="/shop" className={classes.link}>
+          BACK
+        </Link>
       </div>
-      {modal && (
-        <Modal
-          images={props.images}
-          title={props.title}
-          description={props.description}
-          onClick={toggleModal}
-        />
-      )}
-      {modal && <Backdrop onClick={toggleModal} />}
-    </Card>
+    </div>
   );
 }
 

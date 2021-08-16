@@ -1,38 +1,59 @@
-import Card from "../ui/Card";
-import FlexList from "../ui/FlexList";
+// import { useRef } from "react";
 import classes from "./AboutList.module.css";
 
-const AboutList = () => {
+function AboutList(props) {
+  // const imageRef = useRef();
+  // const abouts = props.abouts;
+  // const done = [];
+
+  // const randIndex = () => {
+  //   return Math.floor(Math.random() * abouts.length);
+  // };
+
+  // const initIndex = randIndex();
+  // done.push(initIndex);
+
+  // //click to random image
+  // const handleClick = () => {
+  //   const image = imageRef.current;
+  //   let index = randIndex();
+  //   function check() {
+  //     if (done.includes(index) && done.length < abouts.length) {
+  //       index = randIndex();
+  //       check();
+  //     } else if (done.length === abouts.length) {
+  //       done.reverse();
+  //       done.splice(1);
+  //       check();
+  //     } else {
+  //       done.push(index);
+  //     }
+  //   }
+  //   check();
+
+  //   image.src = abouts[index].image;
+  //   image.alt = abouts[index].title;
+  // };
+
   return (
-    <>
-      <FlexList>
-        <Card>
-          <img
-            className={classes.image}
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Millet_Gleaners.jpg/600px-Millet_Gleaners.jpg"
-            alt="이삭 줍는 여인들"
-          />
-        </Card>
-        <Card>
-          <img
-            className={classes.image}
-            src="https://post-phinf.pstatic.net/MjAxODA3MDVfMjA5/MDAxNTMwNzc1MjIyMDcy.W5XnhJF-MyraAgtHLpYVanc032IrfUIwgDGHfHP6HAAg.j-OKPBJU7GSOzSGru0aKXcEz9ACXgdPJLiHxzuIGtrkg.JPEG/%ED%94%8C%EB%A1%9C%EA%B9%85.jpg?type=w1200"
-            alt="플로깅맨"
-          />
-        </Card>
-      </FlexList>
-      <Card>
-        <div className={classes.text}>
-          <p>안녕하세요 스크래퍼 입니다</p>
-          <p>
-            스크랩scrap은 '모으다'라는 뜻과 '쓰레기'라는 뜻을 모두 갖고
-            있습니다.
-          </p>
-          <p>버려지는 것들을 모아 새로운 쓰임을 찾는 일에 관심있습니다.</p>
-        </div>
-      </Card>
-    </>
+    <div className={classes.wrapper}>
+      <img
+        // onClick={handleClick}
+        className={classes.image}
+        // src={abouts[initIndex].image}
+        // alt={abouts[initIndex].title}
+        // ref={imageRef}
+        src="https://drive.google.com/uc?id=1FaeSBLh0wh9CVaYWWdd8bI4rBfgBLhUS"
+        alt="logo"
+      />
+      <p>
+        안녕하세요 스크래퍼 입니다. <br />
+        스크랩은 '모으다'와 '쓰레기'라는 뜻을 모두 가지고 있습니다.
+        <br />
+        버려지는 것들을 모아 새로운 쓰임을 찾는 일에 관심있습니다.
+      </p>
+    </div>
   );
-};
+}
 
 export default AboutList;

@@ -4,11 +4,11 @@ import MainFooter from "./MainFooter";
 
 function Layout(props) {
   return (
-    <div className={classes.wrapper}>
-      <MainNavigation />
+    <>
+      <MainNavigation className={classes.header} />
       <main className={classes.main}>{props.children}</main>
-      <MainFooter />
-    </div>
+      <MainFooter className={classes.footer} />
+    </>
   );
 }
 

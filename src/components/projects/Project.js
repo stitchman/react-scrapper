@@ -1,39 +1,35 @@
-import { useState } from "react";
 import classes from "./Project.module.css";
-import Modal from "../ui/Modal";
-import Backdrop from "../ui/Backdrop";
+import { Link } from "react-router-dom";
 
-const Project = (props) => {
-  const [modal, setModal] = useState(false);
-
-  function toggleModal() {
-    setModal(!modal);
-  }
-
-  if (modal) {
-    document.body.classList.add("modalIsOpen");
-  } else {
-    document.body.classList.remove("modalIsOpen");
-  }
-
+function Project(props) {
   return (
-    <li className={classes.project}>
-      <div className={classes.image}>
-        <img src={props.images[0]} alt={props.title} onClick={toggleModal} />
-      </div>
+    <div className={classes.project}>
+      <p className={classes.title}>{props.project.title}</p>
+      <br />
+      <ul className={classes.list}>
+        {/* <div className={classes.content}>
+          <p className={classes.title}>{props.item.title}</p>
+           </div> */}
+        {props.project.images.map((image, index) => (
+          <li key={index}>
+            <img src={image} alt={`${props.project.title} ${index}`} />
+          </li>
+        ))}
+      </ul>
       <div className={classes.content}>
-        <p>{props.title}</p>
+        <div className={classes.center}>
+          <p className={classes.title}>{props.project.title}</p>
+          <br />
+          <p>{props.project.description}</p>
+          <br />
+          <br />
+          <Link to="/projects" className={classes.link}>
+            BACK
+          </Link>
+        </div>
       </div>
-      {modal && (
-        <Modal
-          images={props.images}
-          title={props.title}
-          onClick={toggleModal}
-        />
-      )}
-      {modal && <Backdrop onClick={toggleModal} />}
-    </li>
+    </div>
   );
-};
+}
 
 export default Project;
